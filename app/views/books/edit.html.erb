@@ -1,17 +1,37 @@
-<h1>Editing Book</h1>
+<body>
 
-<%= form_with model: @book do |f| %>
+  <h1>Editing Book</h1>
 
-  <p>Title</p>
-  <%= f.text_field :title %>
+  <%if @book.errors.any? %>
+    <%= @book.errors.count %>errors prohibited this book from being saved:
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+  <% end %>
 
-  <p>Body</p>
-  <%= f.text_area :body %>
+    <%= form_with model: @book do |f| %>
 
-  <%= f.submit 'Update Book' %>
+    <div class="field">
+      <label>Title</label>
+      <%= f.text_field :title %>
+    </div>
 
-  <%= link_to "show", book_path(@book.id) %>
-  |
-  <%= link_to "Back", '/books' %>
+    <div class="field">
+      <label>Body</label>
+      <%= f.text_area :body %>
+    </div>
 
-<% end %>
+    <div class="actions">
+      <%= f.submit 'Update Book' %>
+    </div>
+
+    <a>
+      <%= link_to "show", book_path(@book.id) %>
+      |
+      <%= link_to "Back", '/books' %>
+    </a>
+
+    <% end %>
+</body>

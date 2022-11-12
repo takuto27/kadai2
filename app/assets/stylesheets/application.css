@@ -14,3 +14,24 @@
  *= require_self
  */
 
+
+body {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+p {
+  margin: 33px;
+}
+.Create Book {
+  display: block
+}
+label {
+  display: block
+}
+.field {
+  margin-bottom: 10px;
+}
+strong {
+  font-weight: bold
+}
